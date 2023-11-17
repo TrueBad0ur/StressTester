@@ -1,0 +1,6 @@
+vkcs_provider.tf
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
+terraform/.terraform/*
+mcs1405272978-openrc.sh

@@ -1,0 +1,4 @@
+list_of_packages:
+  - apache2-utils
+
+domain: http://ctf.potee.ru/

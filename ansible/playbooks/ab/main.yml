@@ -1,0 +1,5 @@
+- name: Install Apache Benchmark and start test
+  hosts: servers
+  gather_facts: true
+  roles:
+    - ab
