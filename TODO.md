@@ -1,1 +1,2 @@
-[-] Add autoinsert from terraform to ansible inventory
+- [x] Add autoinsert from terraform to ansible inventory for yandex cloud
+- [ ] Add autoinsert from terraform to ansible inventory for vk cloud
