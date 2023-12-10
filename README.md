@@ -1,6 +1,14 @@
 # StressTester
 Stress testing(DOS) setup via Apache Benchmark
 
+# Versions
+```python
+Terraform 1.6.5
+Ansible 2.15.6
+Python 3.11.2
+Debian 6.1.0-14 6.1.64-1
+```
+
 # Terraform
 ## Yandex
 [Official manual](https://cloud.yandex.ru/docs/tutorials/infrastructure-management/terraform-quickstart#configure-terraform)
