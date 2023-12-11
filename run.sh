@@ -43,7 +43,22 @@ if [ $1 == "--yandex" ] || [ $1 == "-y" ]; then
 
   (cd ansible && ansible-playbook ./playbooks/ab/main.yml)
 elif [ $1 == "--vk" ] || [ $1 == "-v" ]; then
-    ip=$(cd ./terraform-vk-cloud && terraform init && terraform fmt && terraform validate && terraform plan && terraform apply | tee /dev/tty)
+  ip=$(cd ./terraform-vk-cloud && terraform init && terraform fmt && terraform validate && terraform plan && terraform apply | tee /dev/tty)
+  global_ip=$(echo "$ip" | tail -1 | cut -d' ' -f3)
+  global_ip="${global_ip:1:-1}"
+  #echo "$global_ip"
+  sed -i -E "s/((1?[0-9][0-9]?|2[0-4][0-9]|25[0-5])\.){3}(1?[0-9][0-9]?|2[0-4][0-9]|25[0-5])/$global_ip/" ./ansible/hosts.ini
+  echo "Pseudo loading to wait when the infra is set up"
+  _start=1
+  _end=300
+
+  for number in $(seq ${_start} ${_end})
+  do
+    sleep 0.1
+    ProgressBar ${number} ${_end}
+  done
+
+  (cd ansible && ansible-playbook ./playbooks/ab/main.yml)
 elif [ $1 == "--help" ] || [ $1 == "-h" ]; then
   help
 else
