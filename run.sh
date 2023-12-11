@@ -13,7 +13,7 @@ function ProgressBar {
 }
 
 help() {
-  echo -e "--yandex  -  use yandex cloud\n--vk      -  use vk cloud\n"
+  echo -e "  - [ StressTester ] -\n\n  -y, --yandex         use yandex cloud\n  -v, --vk             use vk cloud\n  -h, --help           output help menu\n"
   exit
 }
 
@@ -44,8 +44,10 @@ if [ $1 == "--yandex" ]; then
   (cd ansible && ansible-playbook ./playbooks/ab/main.yml)
 elif [ $1 == "--vk" ]; then
   echo "vk cloud usage"
+elif [ $1 == "--help" ] || [ $1 == "-h" ]; then
+  help
 else
-  help;
+  help
 fi
 
 
