@@ -1,2 +1,3 @@
 - [x] Add autoinsert from terraform to ansible inventory for yandex cloud
 - [x] Add autoinsert from terraform to ansible inventory for vk cloud
+- [ ] Create docker image with Apache Benchmark
