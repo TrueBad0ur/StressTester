@@ -42,6 +42,10 @@ provider_installation {
 ```
 
 ## VK
+[Official manual](https://cloud.vk.com/docs/manage/tools-for-using-services/terraform/quick-start#932-tabpanel-1)
+1. Download the Terraform config and the Terraform mirror config from the Terraform account settings
+2. Rename terraform.rc to .terraformrc and copy it to the users home directory (~/)
+3. Copy vkcs_provider.tf to the working directory
 
 ## Ansible
 
