@@ -22,7 +22,7 @@ if [ $# -eq 0 ]
     help
 fi
 
-if [ $1 == "--yandex" ]; then
+if [ $1 == "--yandex" ] || [ $1 == "-y" ]; then
   export YC_TOKEN=$(yc iam create-token)
   export YC_CLOUD_ID=$(yc config get cloud-id)
   export YC_FOLDER_ID=$(yc config get folder-id)
@@ -42,8 +42,8 @@ if [ $1 == "--yandex" ]; then
   done
 
   (cd ansible && ansible-playbook ./playbooks/ab/main.yml)
-elif [ $1 == "--vk" ]; then
-  echo "vk cloud usage"
+elif [ $1 == "--vk" ] || [ $1 == "-v" ]; then
+    ip=$(cd ./terraform-vk-cloud && terraform init && terraform fmt && terraform validate && terraform plan && terraform apply | tee /dev/tty)
 elif [ $1 == "--help" ] || [ $1 == "-h" ]; then
   help
 else
