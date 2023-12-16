@@ -1,3 +1,11 @@
+- name: Wait 300 seconds, but only start checking after 10 seconds
+  ansible.builtin.wait_for_connection:
+    delay: 10
+    timeout: 300
+
+- name: After wait
+  ansible.builtin.setup:
+
 - name: Update apt and install apache2-utils
   become: true
   apt:
@@ -8,14 +16,14 @@
 - name: Run stress tests
   shell: |
     for i in $(seq 100); do
-      ab -n 100000 -c 16 -k -H "User-Agent: requests" {{ domain }} &
+      ab -n 100000 -c 16 -k -H "User-Agent: kekpeker" {{ domain }} &
     done
   args:
     executable: /bin/bash
   async: 45
   poll: 0
 
-- name: Stop all threads
-  become: false
-  shell:
-    cmd: "sleep 10 && kill $(ps aux | grep 'ab -n' | grep -v grep | awk '{print $2}')"
+#- name: Stop all threads
+#  become: false
+#  shell:
+#    cmd: "sleep 10 && kill $(ps aux | grep 'ab -n' | grep -v grep | awk '{print $2}')"

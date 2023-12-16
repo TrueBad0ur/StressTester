@@ -32,14 +32,14 @@ if [ $1 == "--yandex" ] || [ $1 == "-y" ]; then
   #echo "$global_ip"
   sed -i -E "s/((1?[0-9][0-9]?|2[0-4][0-9]|25[0-5])\.){3}(1?[0-9][0-9]?|2[0-4][0-9]|25[0-5])/$global_ip/" ./ansible/hosts.ini
   echo "Pseudo loading to wait when the infra is set up"
-  _start=1
-  _end=400
+#  _start=1
+#  _end=400
 
-  for number in $(seq ${_start} ${_end})
-  do
-    sleep 0.1
-    ProgressBar ${number} ${_end}
-  done
+#  for number in $(seq ${_start} ${_end})
+#  do
+#    sleep 0.1
+#    ProgressBar ${number} ${_end}
+#  done
 
   (cd ansible && ansible-playbook ./playbooks/ab/main.yml)
 elif [ $1 == "--vk" ] || [ $1 == "-v" ]; then
@@ -49,14 +49,14 @@ elif [ $1 == "--vk" ] || [ $1 == "-v" ]; then
   #echo "$global_ip"
   sed -i -E "s/((1?[0-9][0-9]?|2[0-4][0-9]|25[0-5])\.){3}(1?[0-9][0-9]?|2[0-4][0-9]|25[0-5])/$global_ip/" ./ansible/hosts.ini
   echo "Pseudo loading to wait when the infra is set up"
-  _start=1
-  _end=300
+#  _start=1
+#3  _end=300
 
-  for number in $(seq ${_start} ${_end})
-  do
-    sleep 0.1
-    ProgressBar ${number} ${_end}
-  done
+#  for number in $(seq ${_start} ${_end})
+#  do
+#    sleep 0.1
+#    ProgressBar ${number} ${_end}
+#  done
 
   (cd ansible && ansible-playbook ./playbooks/ab/main.yml)
 elif [ $1 == "--help" ] || [ $1 == "-h" ]; then

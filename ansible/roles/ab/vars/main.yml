@@ -1,4 +1,5 @@
 list_of_packages:
   - apache2-utils
 
-domain: https://ya.ru/
+domain: https://defence.potee.ru/
+# format https://domain.local/
